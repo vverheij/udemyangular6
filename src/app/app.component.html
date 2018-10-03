@@ -1,0 +1,15 @@
+
+<label>Servername</label>
+
+<input 
+    type="text" 
+    [(ngModel)]="username" 
+    class="form-control">
+
+<button 
+    class="btn btn-primary" 
+    (click)="username = ''" 
+    [disabled]="username === ''">ok
+</button>
+
+<p>{{ username }}</p>
