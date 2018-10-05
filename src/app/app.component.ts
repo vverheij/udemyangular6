@@ -6,9 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  username = 'testserver';
+  username = '';
+  usernameAdded = false;
 
   onClick() {
-    this.username = '';
+    this.usernameAdded = true;
+    //this.username = 'Victor';
   }
 }

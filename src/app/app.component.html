@@ -1,15 +1,22 @@
+<div class="container">
+    <br/>
+    <label>Username</label>
 
-<label>Servername</label>
+    <input 
+        type="text" 
+        [(ngModel)]="username" 
+        class="form-control">
 
-<input 
-    type="text" 
-    [(ngModel)]="username" 
-    class="form-control">
+    <button 
+        class="btn btn-primary" 
+        (click)="onClick()" 
+        [disabled]="username === ''">ok
+    </button>
 
-<button 
-    class="btn btn-primary" 
-    (click)="username = ''" 
-    [disabled]="username === ''">ok
-</button>
-
-<p>{{ username }}</p>
+    <p *ngIf="usernameAdded; else noUsername">
+        Username: {{ username }}
+    </p>
+    <ng-template #noUsername>
+        <p>No username entered</p>
+    </ng-template>
+</div>
