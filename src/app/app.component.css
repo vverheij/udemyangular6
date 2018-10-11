@@ -1,0 +1,12 @@
+.white-background {
+    background-color: white !important;
+}
+
+.yellow-background {
+    background-color: yellow !important;
+}
+
+body {
+    padding: 20px;
+    background-color: orange;
+}

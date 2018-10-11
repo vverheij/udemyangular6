@@ -9,7 +9,7 @@
 
     <button 
         class="btn btn-primary" 
-        (click)="onClick()" 
+        (click)="onClick1()" 
         [disabled]="username === ''">ok
     </button>
 
@@ -20,3 +20,62 @@
         <p>No username entered</p>
     </ng-template>
 </div>
+
+<hr>
+
+ <!-- <br>Dirty: {{ configurationForm.dirty }}
+  <br>Touched: {{ configurationForm.touched }}
+  <br>Valid: {{ configurationForm.valid }}
+  <pre>{{ configurationForm.value | json }}</pre>
+ -->
+
+<div class="container">
+    <h2 [textContent]="numberOfColls"></h2>
+
+    <label for="numcolls">number of colls</label>
+    <input name="numberOfColls" id="numcolls" type="text" [(ngModel)]="numberOfColls"/>
+
+    <br>
+    one way binding [ngModel]: 
+    <input type="text" [ngModel]="pickone"/>
+    <br>
+    property binding with [textContent]: <h3 [textContent]="pickone"></h3>
+    <br>
+    text interpolation: {{ pickone }}
+    <br>
+
+    two way binding [(ngModel)]: <input type="text" [(ngModel)]="pickone"/>
+
+    <table bgcolor="#11FF11" height=100 withd=200>
+    <tr>
+        <td >---een---</td><td>---twee---</td><td>---drie----</td>
+    </tr>
+    <tr>
+        <td bgcolor="#99FF99" [attr.colspan]="numberOfColls">span</td>
+        </tr>
+    </table>
+
+
+    <button class="btn btn-primary" [class.white-background]="pickone" (click)="onClick($event)">class binding</button><br>
+    <button [style.color]="pickone ? 'red': 'green' ">style binding</button><br>
+
+    <div (click)="onDivClicked()">
+    <button class="btn btn-primary" 
+        [class.white-background]="!pickone" 
+        [style.color]="pickone ? 'white': 'blue'" 
+        (click)="onClick($event)">Click to toggle</button>
+    </div>
+    <br>
+    <input #email placeholder="type email" type="text" (keyup.enter)="onKeyUp(email.value)"/><br>
+    <p 
+    [hidden]="!pickone"
+    [ngStyle]="{'color': getColor()}"
+    [ngClass]="{'yellow-background': numberOfClicks.length > 3}">
+        status is: {{ pickone }} and number of clicks is {{ numberOfClicks.length }}
+    </p>
+<!-- 
+<div *ngFor="click of numberOfClicks.length">button was clicked {{ numberOfClicks.length }}!</div> -->
+</div>
+
+
+

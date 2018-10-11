@@ -9,8 +9,36 @@ export class AppComponent {
   username = '';
   usernameAdded = false;
 
-  onClick() {
+  onClick1() {
     this.usernameAdded = true;
     //this.username = 'Victor';
   }
+
+  pickone = true;
+  numberOfColls = 3;
+  // todo: modal maken?
+
+  numberOfClicks: number[] = [];
+
+  onClick($event){
+    this.pickone = !this.pickone;
+    $event.stopPropagation();
+    let index = this.numberOfClicks.length;
+    index = index + 1
+    this.numberOfClicks.push(index);
+    console.log('Button was clicked ' + this.numberOfClicks.length + ' times');
+  }
+
+  onDivClicked() {
+    console.log('Div was clicked');
+  }
+
+  onKeyUp(email){
+    console.log('email adres is: ' +  email);
+  }
+
+  getColor(){
+    return ((this.pickone) ? 'green': 'red');
+  }
+
 }
