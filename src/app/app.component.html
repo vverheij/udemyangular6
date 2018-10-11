@@ -73,6 +73,14 @@
     [ngClass]="{'yellow-background': numberOfClicks.length > 3}">
         status is: {{ pickone }} and number of clicks is {{ numberOfClicks.length }}
     </p>
+
+    <hr>
+    <button class="btn btn-primary" (click)="showSecret = !showSecret">Toggle secret</button>
+    <p *ngIf="showSecret">Secret password = tuna</p>
+
+    <hr>
+    <button class="btn btn-primary" (click)="toggleDetials()">Toggle secret</button>
+    <div *ngFor="let logItem of log">{{ logItem }}</div>
 <!-- 
 <div *ngFor="click of numberOfClicks.length">button was clicked {{ numberOfClicks.length }}!</div> -->
 </div>

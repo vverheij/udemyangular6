@@ -41,4 +41,12 @@ export class AppComponent {
     return ((this.pickone) ? 'green': 'red');
   }
 
+  showSecret = false;
+
+  log = [];
+  onToggleDetails() {
+    this.showSecret = !this.showSecret;
+    this.log.push(this.log.length + 1);
+  }
+
 }
