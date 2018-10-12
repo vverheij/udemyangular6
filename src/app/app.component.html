@@ -64,6 +64,7 @@
         [class.white-background]="!pickone" 
         [style.color]="pickone ? 'white': 'blue'" 
         (click)="onClick($event)">Click to toggle</button>
+        <p [hidden]="!pickone">Secret code = tuna</p>
     </div>
     <br>
     <input #email placeholder="type email" type="text" (keyup.enter)="onKeyUp(email.value)"/><br>
@@ -73,9 +74,12 @@
     [ngClass]="{'yellow-background': numberOfClicks.length > 3}">
         status is: {{ pickone }} and number of clicks is {{ numberOfClicks.length }}
     </p>
-<!-- 
-<div *ngFor="click of numberOfClicks.length">button was clicked {{ numberOfClicks.length }}!</div> -->
+
+<div *ngFor="let item of numberOfClicks">
+    {{ item }}</div>
 </div>
+
+
 
 
 
