@@ -64,6 +64,7 @@
         [class.white-background]="!pickone" 
         [style.color]="pickone ? 'white': 'blue'" 
         (click)="onClick($event)">Click to toggle</button>
+        <p [hidden]="!pickone">Secret code = tuna</p>
     </div>
     <br>
     <input #email placeholder="type email" type="text" (keyup.enter)="onKeyUp(email.value)"/><br>
@@ -74,16 +75,11 @@
         status is: {{ pickone }} and number of clicks is {{ numberOfClicks.length }}
     </p>
 
-    <hr>
-    <button class="btn btn-primary" (click)="showSecret = !showSecret">Toggle secret</button>
-    <p *ngIf="showSecret">Secret password = tuna</p>
-
-    <hr>
-    <button class="btn btn-primary" (click)="toggleDetials()">Toggle secret</button>
-    <div *ngFor="let logItem of log">{{ logItem }}</div>
-<!-- 
-<div *ngFor="click of numberOfClicks.length">button was clicked {{ numberOfClicks.length }}!</div> -->
+<div *ngFor="let item of numberOfClicks">
+    {{ item }}</div>
 </div>
+
+
 
 
 
